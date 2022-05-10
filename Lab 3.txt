@@ -1,0 +1,22 @@
+﻿Laboration 3: Timing Attacks
+Amanda Johnsson
+amanda-johnsson@hotmail.com
+
+
+The tag I found was for delay 20 and the tag is: e1e7ad62f88699bbfef20291d0b2e7e2
+
+
+In this lab I had to find a tag for my own KauID (amanjohn) in order to access a url. In order to do that I had to do a timing attack. I assume that I’m free to choose which delay I want as long as it’s below 100.
+
+
+In order to run the code on linux you type: python3 timing_attack.py
+That will execute the code and perform a timing attack with my KauID. It will take a while to run the code so you have to be patient. The code builds on trying to find the right hex value for the right index in the tag. First it will generate a list of all possible hexes and then it will run through the tag index by index. It will first check if a hex value is bigger than the delay that it should have, if that’s true it will then run multiple requests with that hex and see if the smallest response time is big enough. This is just to make sure that we weren’t lucky at first. If the time is smaller we will go back one index since that means that the one before weren’t quite correct.
+
+
+One problem I encountered was when I wanted the code to run through the tag to find the correct hex values. At first I did not think quite correctly about the time. I only checked if one hex made the request faster than another one. What I forgot about was the delay and that is why it didn't work. Since there is a delay it should not be able to run faster than the delay. I therefore checked if a hex gave a time that was not less than the delay instead.
+
+
+A big problem I had was that I was not able to make the code work when I was visiting my in-laws in Stockholm. I could not understand why this was so I asked some other people in the course if they had had a similar problem. One answered that he was not able to run it at home as well but when he ran it on the schools network it worked. I then tried running on the schools network as well when I got back from Stockholm and then it worked much better, I was able to actually get somewhere. This could be good to know for the future if any similar labs are done since I basically wasted hours when I was in Stockholm.
+
+
+During this laboration I have learned several things. One of them that I've truly learned was to be patient, since it took a long while for the code to run. This was not so fun when you wanted to try to see if the code worked. I’ve also learned how to use a timing attack in practice and how to actually use the time in order to make progress in my attack. Other than that I have learned that the network can have a bigger impact than what I thought since I was only able to run my code on the schools network for some odd reason.
